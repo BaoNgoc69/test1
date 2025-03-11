@@ -13,7 +13,7 @@ public class LoginPage {
     WebDriverWait wait;
 
     @FindBy(id = "account_email")
-    WebElement inputEmail;
+    WebElement inputEmail;  
 
     @FindBy(xpath = "//button[@type='submit']")
     WebElement clickBtnContinue;
