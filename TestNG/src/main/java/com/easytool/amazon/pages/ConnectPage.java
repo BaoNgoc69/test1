@@ -11,17 +11,23 @@ import java.time.Duration;
 public class ConnectPage {
     WebDriver driver;
     WebDriverWait wait;
+    BaseTestPage baseTestPage;
     By iframeLocator = By.xpath("//iframe[@title='ToolE Amazon Easy Sync']" );
-    By connectTabLocator = By.xpath("//ul[@class='tabs-container']//li[3]" );
+    By connectTabLocator = By.xpath("//ul[@class='tabs-container']//span[@class='Polaris-Text--root Polaris-Text--bodySm Polaris-Text--medium'][normalize-space()='Connect']" );
     By configLinkLocator = By.xpath("//a[normalize-space()='How to configure your Connect?']" );
     By checkConnectButton = By.xpath("//button[.//span[text()='Check']]");
     By successMessage = By.xpath("//span[contains(@class, 'Polaris-Text--bodyMd Polaris-Text--success') and text()='Successfully connected to Amazon']" );
 
-    public ConnectPage(WebDriver driver) {
+
+
+    public ConnectPage(WebDriver driver, BaseTestPage baseTestPage) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        this.baseTestPage = baseTestPage; // ✅ Nhận từ test, không tự tạo mới
         PageFactory.initElements(driver, this);
     }
+
+
 
     public boolean openConnectTab() {
         try {
@@ -44,16 +50,22 @@ public class ConnectPage {
         }
     }
 
-    public void switchToIframe(By iframeLocator) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement iframeElement = wait.until(ExpectedConditions.presenceOfElementLocated(iframeLocator));
-        driver.switchTo().frame(iframeElement);
+    public boolean switchToIframe(By iframeLocator) {
+        try {
+            WebElement iframeElement = new WebDriverWait(driver, Duration.ofSeconds(10))
+                    .until(ExpectedConditions.presenceOfElementLocated(iframeLocator));
+            driver.switchTo().frame(iframeElement);
+            System.out.println("✅ Đã chuyển vào iframe!");
+            return true;
+        } catch (NoSuchFrameException | TimeoutException e) {
+            System.out.println("⚠ Không tìm thấy iframe: " + e.getMessage());
+            return false;
+        }
     }
 
     public void switchToDefaultContent() {
         driver.switchTo().defaultContent();
     }
-
     public void checkAllConnections() {
         try {
             // 1️⃣ Chuyển vào iframe (nếu có)
@@ -63,8 +75,10 @@ public class ConnectPage {
             List<WebElement> checkButtons = driver.findElements(By.xpath("//button[span[text()='Check']]"));
 
             // 3️⃣ Lặp qua từng nút và click
+
             for (WebElement checkButton : checkButtons) {
                 checkButton.click();
+
                 System.out.println("✅ Đã click vào nút Check");
 
                 // 4️⃣ Chờ thông báo kết nối thành công
@@ -72,10 +86,13 @@ public class ConnectPage {
                         By.xpath("//span[contains(@class, 'Polaris-Text--success')]")
                 ));
                 System.out.println("✅ Kết nối thành công: " + successMessage.getText());
-
                 // 5️⃣ Chờ một chút trước khi tiếp tục (tránh lỗi)
-                Thread.sleep(2000);
+
+                Thread.sleep(1000);
+
             }
+            baseTestPage.scrollDown(200);
+            baseTestPage.takeScreenshot("Check connect");
 
         } catch (Exception e) {
             System.out.println("⚠️ Lỗi khi kiểm tra kết nối: " + e.getMessage());

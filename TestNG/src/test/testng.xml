@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="EasyTool Test Suite">
+    <test name="Full Test">
+        <classes>
+            <class name="com.easytool.amazon.tests.LoginTest"/>
+            <class name="com.easytool.amazon.tests.ConnectTest"/>
+        </classes>
+    </test>
+</suite>
