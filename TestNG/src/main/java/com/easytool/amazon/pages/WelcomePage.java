@@ -12,7 +12,7 @@ public class WelcomePage {
     WebDriver driver;
     WebDriverWait wait;
     BaseTestPage baseTestPage;
-    By iframeLocator = By.xpath("//iframe[@title='ToolE Amazon Easy Sync']");
+    By iframeLocator = By.xpath("//iframe[@title='[DEV] Amazon Easy Tool']");
     By successMessageLocator = By.xpath("//p[contains(text(),'Connect to Amazon easily in 3 simple clicks')]");
 
     public WelcomePage(WebDriver driver, BaseTestPage baseTestPage) {

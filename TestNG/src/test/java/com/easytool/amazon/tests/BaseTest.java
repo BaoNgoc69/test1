@@ -20,7 +20,7 @@ public class BaseTest {
         if (driver == null) {
             driver = new ChromeDriver();
             driver.manage().window().maximize();
-            driver.get("https://admin.shopify.com/store/easy-tool-prod/apps/easyamazontool/welcome");
+            driver.get("https://admin.shopify.com/store/easy-tool-dev/apps/easyamazontool_development/welcome");
             System.out.println("✅ Trình duyệt đã mở.");
         }
     }

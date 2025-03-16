@@ -25,6 +25,7 @@ public class ConnectTest extends BaseTest {
     }
 
 
+
     @Test(dependsOnMethods = {"testLogin"})
     public void testOpenConnectTab() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -57,7 +58,7 @@ public class ConnectTest extends BaseTest {
 
             // Tìm đúng iframe theo title (nếu có)
             WebElement targetIframe = wait.until(ExpectedConditions.presenceOfElementLocated(
-                    By.xpath("//iframe[contains(@title, 'Amazon Easy Sync')]")
+                    By.xpath("//iframe[contains(@title, '[DEV] Amazon Easy Tool')]")
             ));
 
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", targetIframe);

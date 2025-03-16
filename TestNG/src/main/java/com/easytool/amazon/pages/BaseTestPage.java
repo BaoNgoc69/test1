@@ -46,7 +46,7 @@ public class BaseTestPage {
 
     public void takeScreenshot(String testName) {
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String screenshotPath = "screenshots/" + testName + "_" + timestamp + ".png";
+        String screenshotPath = "screenshots/" + timestamp + "_" + testName+ ".png";
 
         File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
