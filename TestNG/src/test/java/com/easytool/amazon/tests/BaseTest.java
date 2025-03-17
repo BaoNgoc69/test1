@@ -1,5 +1,7 @@
 package com.easytool.amazon.tests;
 
+import com.easytool.amazon.pages.BaseTestHelper;
+import com.easytool.amazon.pages.LoginPage;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -13,7 +15,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BaseTest {
-    protected static WebDriver driver;  // Dùng chung WebDriver
+    protected static WebDriver driver;
+    protected BaseTestHelper baseTestHelper;
 
     @BeforeSuite
     public void setup() {  // Chỉ chạy 1 lần trước tất cả test
@@ -22,6 +25,8 @@ public class BaseTest {
             driver.manage().window().maximize();
             driver.get("https://admin.shopify.com/store/easy-tool-dev/apps/easyamazontool_development/welcome");
             System.out.println("✅ Trình duyệt đã mở.");
+
+
         }
     }
 

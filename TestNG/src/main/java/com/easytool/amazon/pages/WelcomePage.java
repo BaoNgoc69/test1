@@ -11,14 +11,14 @@ import java.time.Duration;
 public class WelcomePage {
     WebDriver driver;
     WebDriverWait wait;
-    BaseTestPage baseTestPage;
+    BaseTestHelper baseTestHelper;
     By iframeLocator = By.xpath("//iframe[@title='[DEV] Amazon Easy Tool']");
     By successMessageLocator = By.xpath("//p[contains(text(),'Connect to Amazon easily in 3 simple clicks')]");
 
-    public WelcomePage(WebDriver driver, BaseTestPage baseTestPage) {
+    public WelcomePage(WebDriver driver, BaseTestHelper baseTestHelper) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        this.baseTestPage = baseTestPage;
+        this.baseTestHelper = baseTestHelper;
         PageFactory.initElements(driver, this);
     }
 
@@ -29,7 +29,7 @@ public class WelcomePage {
 
             WebElement successMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(successMessageLocator));
             System.out.println("🔥 Nội dung hiển thị sau khi login: " + successMessage.getText());
-            baseTestPage.takeScreenshot("login_success");
+            baseTestHelper.takeScreenshot(driver, "login_success");
             return successMessage.isDisplayed();
 
         } catch (Exception e) {

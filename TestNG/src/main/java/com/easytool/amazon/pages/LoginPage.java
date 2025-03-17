@@ -11,7 +11,7 @@ import java.time.Duration;
 public class LoginPage {
     WebDriver driver;
     WebDriverWait wait;
-    BaseTestPage baseTestPage;
+    BaseTestHelper baseTestHelper;
 
     @FindBy(id = "account_email")
     WebElement inputEmail;  
@@ -25,11 +25,11 @@ public class LoginPage {
     @FindBy(name = "commit")
     WebElement clickBtnLogin;
 
-    public LoginPage(WebDriver driver, BaseTestPage baseTestPage) {
+    public LoginPage(WebDriver driver, BaseTestHelper baseTestHelper) {
 
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        this.baseTestPage = baseTestPage;
+     this.baseTestHelper = baseTestHelper;
         PageFactory.initElements(driver, this);
     }
 

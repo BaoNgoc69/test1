@@ -12,18 +12,11 @@ import java.util.Comparator;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
-import ru.yandex.qatools.ashot.AShot;
-import ru.yandex.qatools.ashot.Screenshot;
-import ru.yandex.qatools.ashot.cropper.indent.BlurFilter;
-import ru.yandex.qatools.ashot.cropper.indent.IndentCropper;
-import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
-import javax.imageio.ImageIO;
-
-public class BaseTestPage {
+public class BaseTestHelper {
     WebDriver driver;
 
-    public BaseTestPage(WebDriver driver) {
+    public BaseTestHelper(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -44,11 +37,12 @@ public class BaseTestPage {
         }
     }
 
-    public void takeScreenshot(String testName) {
+    public void takeScreenshot(WebDriver driver, String testName) {
+        deleteOldScreenshots(3); // Giữ lại tối đa 10 ảnh
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String screenshotPath = "screenshots/" + timestamp + "_" + testName+ ".png";
 
-        File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        File srcFile = ((TakesScreenshot) this.driver).getScreenshotAs(OutputType.FILE);
         try {
             FileUtils.copyFile(srcFile, new File(screenshotPath));
             System.out.println("📸 Screenshot saved: " + screenshotPath);

@@ -15,7 +15,7 @@ import static java.lang.Thread.sleep;
 public class ConnectPage {
     WebDriver driver;
     WebDriverWait wait;
-    BaseTestPage baseTestPage;
+    BaseTestHelper baseTestHelper;
     String originalURL;
     By iframeLocator = By.xpath("//iframe[@title='[DEV] Amazon Easy Tool']");
     By connectTabLocator = By.xpath("//ul[@class='tabs-container']//span[@class='Polaris-Text--root Polaris-Text--bodySm Polaris-Text--medium'][normalize-space()='Connect']");
@@ -34,10 +34,10 @@ public class ConnectPage {
     By inputEmail = By.xpath("//input[@type='email' and @id='ap_email' and @name='email']");
     By inputPassword = By.xpath("//input[@id='ap_password']");
 
-    public ConnectPage(WebDriver driver, BaseTestPage baseTestPage) {
+    public ConnectPage(WebDriver driver, BaseTestHelper baseTestHelper) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        this.baseTestPage = baseTestPage; // ✅ Nhận từ test, không tự tạo mới
+        this.baseTestHelper = baseTestHelper; // ✅ Nhận từ test, không tự tạo mới
         PageFactory.initElements(driver, this);
     }
 
@@ -90,7 +90,7 @@ public class ConnectPage {
         // input name
         WebElement inputName = driver.findElement(inputNameMkp);
         inputName.sendKeys("Amazon USA");
-        baseTestPage.scrollDown(200);
+        baseTestHelper.scrollDown(200);
 
         // select region
         WebElement dropdownRegion = driver.findElement(selectRegion);
@@ -108,11 +108,11 @@ public class ConnectPage {
         dropdown3.selectByIndex(1);
 
         sleep(200);
-        baseTestPage.takeScreenshot("add mkp");
-        WebElement clickSave= driver.findElement(btnSaveAuthorize);
+        baseTestHelper.takeScreenshot(driver, "add mkp");
+        WebElement clickSave = driver.findElement(btnSaveAuthorize);
         this.originalURL = driver.getCurrentUrl();
-        System.out.println("URL hiện tại của trang connect"+originalURL);
-        baseTestPage.scrollDown(200);
+        System.out.println("URL hiện tại của trang connect" + originalURL);
+        baseTestHelper.scrollDown(200);
         sleep(1000);
         clickSave.click();
         System.out.println("Click Save Successfully");
@@ -121,7 +121,7 @@ public class ConnectPage {
         sleep(1000);
     }
 
-    public void checkAllConnections() {
+    public boolean checkAllConnections() {
         boolean ischeck = false;
         try {
             // 1️⃣ Chuyển vào iframe (nếu có)
@@ -129,7 +129,8 @@ public class ConnectPage {
 
             // 2️⃣ Lấy danh sách tất cả các nút "Check"
             List<WebElement> checkButtons = driver.findElements(By.xpath("//button[span[text()='Check']]"));
-
+// 🛠️ Thêm log để kiểm tra số lượng button "Check" tìm thấy
+            System.out.println("🔍 Tổng số button Check tìm thấy: " + checkButtons.size());
             // 3️⃣ Lặp qua từng nút và click
 
             for (WebElement checkButton : checkButtons) {
@@ -137,7 +138,7 @@ public class ConnectPage {
                 checkButton.click();
 
                 System.out.println("✅ Đã click vào nút Check");
-                baseTestPage.scrollDown(200);
+                baseTestHelper.scrollDown(200);
                 sleep(3000);
 
                 // 4️⃣ Chờ thông báo kết nối thành công
@@ -150,11 +151,11 @@ public class ConnectPage {
                 sleep(1000);
 
             }
-            baseTestPage.scrollDown(200);
-            baseTestPage.takeScreenshot("Check connect");
+            baseTestHelper.scrollDown(200);
+            baseTestHelper.takeScreenshot(driver, "Check connect");
             if (!ischeck) {
                 this.addConnect();
-                baseTestPage.takeScreenshot("Add connect");
+                baseTestHelper.takeScreenshot(driver, "Add connect");
             }
 
 
@@ -164,12 +165,10 @@ public class ConnectPage {
             // 6️⃣ Quay lại trang chính (nếu có dùng iframe)
             switchToDefaultContent();
         }
+        return ischeck;
     }
 
     public void authorizeConnection() throws InterruptedException {
-
-//        WebElement clickSave= driver.findElement(btnSaveAuthorize);
-//        clickSave.click();
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         String url = driver.getCurrentUrl();
@@ -206,40 +205,38 @@ public class ConnectPage {
         sleep(10000);
 
         // check
-        try {
-            // 1️⃣ Chuyển vào iframe (nếu có)
-            switchToIframe(iframeLocator);
-
-            // 2️⃣ Lấy danh sách tất cả các nút "Check"
-            List<WebElement> checkButtons = driver.findElements(By.xpath("//button[span[text()='Check']]"));
-
-            // 3️⃣ Lặp qua từng nút và click
-
-            for (WebElement checkButton : checkButtons) {
-                checkButton.click();
-
-                System.out.println("✅ Đã click vào nút Check");
-                baseTestPage.scrollDown(200);
-                sleep(3000);
-
-                // 4️⃣ Chờ thông báo kết nối thành công
-                WebElement successMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                        By.xpath("//span[contains(@class, 'Polaris-Text--success')]")
-                ));
-                System.out.println("✅ Kết nối thành công: " + successMessage.getText());
-                // 5️⃣ Chờ một chút trước khi tiếp tục (tránh lỗi)
-
-                sleep(1000);
-
-            }
-        }
-        catch (Exception e) {
-            System.out.println("⚠️ Lỗi khi kiểm tra kết nối: " + e.getMessage());
-        }
-        finally {
-            // 6️⃣ Quay lại trang chính (nếu có dùng iframe)
-            switchToDefaultContent();
-        }
+//        try {
+//            // 1️⃣ Chuyển vào iframe (nếu có)
+//            switchToIframe(iframeLocator);
+//
+//            // 2️⃣ Lấy danh sách tất cả các nút "Check"
+//            List<WebElement> checkButtons = driver.findElements(By.xpath("//button[span[text()='Check']]"));
+//
+//            // 3️⃣ Lặp qua từng nút và click
+//
+//            for (WebElement checkButton : checkButtons) {
+//                checkButton.click();
+//
+//                System.out.println("✅ Đã click vào nút Check");
+//                baseTestHelper.scrollDown(200);
+//                sleep(3000);
+//
+//                // 4️⃣ Chờ thông báo kết nối thành công
+//                WebElement successMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(
+//                        By.xpath("//span[contains(@class, 'Polaris-Text--success')]")
+//                ));
+//                System.out.println("✅ Kết nối thành công: " + successMessage.getText());
+//                // 5️⃣ Chờ một chút trước khi tiếp tục (tránh lỗi)
+//
+//                sleep(1000);
+//
+//            }
+//        } catch (Exception e) {
+//            System.out.println("⚠️ Lỗi khi kiểm tra kết nối: " + e.getMessage());
+//        } finally {
+//            // 6️⃣ Quay lại trang chính (nếu có dùng iframe)
+//            switchToDefaultContent();
+//        }
     }
 
 }
