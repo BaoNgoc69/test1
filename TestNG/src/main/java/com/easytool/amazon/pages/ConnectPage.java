@@ -121,7 +121,7 @@ public class ConnectPage {
         sleep(1000);
     }
 
-    public boolean checkAllConnections() {
+    public boolean checkAllConnections() throws InterruptedException {
         boolean ischeck = false;
         try {
             // 1️⃣ Chuyển vào iframe (nếu có)
@@ -132,7 +132,6 @@ public class ConnectPage {
 // 🛠️ Thêm log để kiểm tra số lượng button "Check" tìm thấy
             System.out.println("🔍 Tổng số button Check tìm thấy: " + checkButtons.size());
             // 3️⃣ Lặp qua từng nút và click
-
             for (WebElement checkButton : checkButtons) {
                 ischeck = true;
                 checkButton.click();
