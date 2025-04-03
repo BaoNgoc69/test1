@@ -150,8 +150,8 @@ public class ConnectPage {
                 sleep(1000);
 
             }
-            baseTestHelper.scrollDown(200);
-            baseTestHelper.takeScreenshot(driver, "Check connect");
+            //baseTestHelper.scrollDown(200);
+           // baseTestHelper.takeScreenshot(driver, "Check connect");
             if (!ischeck) {
                 this.addConnect();
                 baseTestHelper.takeScreenshot(driver, "Add connect");

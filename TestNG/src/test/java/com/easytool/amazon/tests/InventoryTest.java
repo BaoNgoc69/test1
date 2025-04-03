@@ -27,6 +27,16 @@ public class InventoryTest extends BaseTest {
         inventoryPage.openInventoryTab();
     }
 
+    @Test(dependsOnMethods = {"testOpenInventoryTab"})
+    public void clickSendAllToAmazon() throws InterruptedException {
+        inventoryPage.clickSendAllToAmazon();
+    }
+    @Test(dependsOnMethods = {"testOpenInventoryTab"})
+    public void clickDisableAllProducts() throws InterruptedException {
+        inventoryPage.clickDisableAllProducts();
+    }
+
+
 
 
 

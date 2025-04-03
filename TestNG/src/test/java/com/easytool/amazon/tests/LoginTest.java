@@ -10,7 +10,7 @@ import org.testng.annotations.*;
 public class LoginTest extends BaseTest{
 
     @Test(priority = 1, description = "Đăng nhập vào hệ thống")
-    public void testLogin() {
+    public void testLogin() throws InterruptedException {
         BaseTestHelper baseTest = new BaseTestHelper(driver);
         LoginPage loginPage = new LoginPage(driver, baseTest);
 

@@ -33,10 +33,13 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void login(String email, String password) {
+    public void login(String email, String password) throws InterruptedException {
         wait.until(ExpectedConditions.visibilityOf(inputEmail)).sendKeys(email, Keys.ENTER);
+        Thread.sleep(5000);
         wait.until(ExpectedConditions.elementToBeClickable(clickBtnContinue)).click();
+        Thread.sleep(5000);
         wait.until(ExpectedConditions.visibilityOf(inputPassword)).sendKeys(password);
+        Thread.sleep(5000);
         wait.until(ExpectedConditions.elementToBeClickable(clickBtnLogin)).click();
     }
 }

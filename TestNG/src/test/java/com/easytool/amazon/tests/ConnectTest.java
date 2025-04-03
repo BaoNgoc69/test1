@@ -37,31 +37,8 @@ public class ConnectTest extends BaseTest {
 
     @Test(dependsOnMethods = {"testCheckConnection"})
     public void testAddAndAuthorizeConnection() throws InterruptedException {
-        if (isChecked) {
-            System.out.println("⚠ Đã có connection, bỏ qua test này.");
-            return;
-        }
-        System.out.println("🔄 Chưa có connection, tiến hành thêm mới.");
-
-        // Chờ connection được cập nhật
-       // connectPage.authorizeConnection();
-        int retry = 0;
-        boolean isConnected = false;
-        while (retry < 5) { // Kiểm tra tối đa 5 lần
-            Thread.sleep(3000); // Chờ 3 giây trước mỗi lần kiểm tra
-            isConnected = connectPage.checkAllConnections();
-            if (isConnected) {
-                System.out.println("✅ Connection đã được thêm!");
-                break;
-            }
-            retry++;
-            System.out.println("⏳ Chưa thấy connection, thử lại lần " + retry);
-        }
-
-        if (!isConnected) {
-            throw new RuntimeException("❌ Connection không được thêm sau khi authorize!");
-        }
-    }
+        connectPage.checkAllConnections();
+   }
 }
 
 

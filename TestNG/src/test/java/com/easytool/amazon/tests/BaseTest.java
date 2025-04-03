@@ -1,18 +1,9 @@
 package com.easytool.amazon.tests;
 
 import com.easytool.amazon.pages.BaseTestHelper;
-import com.easytool.amazon.pages.LoginPage;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
-
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class BaseTest {
     protected static WebDriver driver;
@@ -34,10 +25,7 @@ public class BaseTest {
     public void teardown() {  // Chạy 1 lần sau tất cả test
         if (driver != null) {
             driver.quit();
-            driver = null;
-            System.out.println("✅ Trình duyệt đã đóng.");
+            System.out.println("Đã đóng Chrome.");
         }
     }
-
-
 }
