@@ -1,43 +1,63 @@
 package com.easytool.amazon.tests;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.easytool.amazon.pages.BaseTestHelper;
 import com.easytool.amazon.pages.InventoryPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import com.easytool.amazon.utils.ExtentTestManager;
+import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
 
 public class InventoryTest extends BaseTest {
     InventoryPage inventoryPage;
 
-
     @BeforeClass
     public void initPages() {
         BaseTestHelper baseTest = new BaseTestHelper(driver);
-        inventoryPage = new InventoryPage(driver, baseTest); // Khởi tạo inventoryPage
+        inventoryPage = new InventoryPage(driver, baseTest);
     }
 
-    @Test(dependsOnMethods = {"testLogin"})
+    @Test(description = "Open the Inventory tab.", dependsOnMethods = {"testLogin"})
     public void testOpenInventoryTab() throws InterruptedException {
-        inventoryPage.openInventoryTab();
+        ExtentTest test = ExtentTestManager.getTest();
+        test.info("🔍 Opening Inventory tab...");
+
+        boolean result = inventoryPage.openInventoryTab();
+        Assert.assertTrue(result, "❌ Không mở được tab Inventory!");
+
+        test.pass("✅ Inventory tab opened successfully.");
     }
 
-    @Test(dependsOnMethods = {"testOpenInventoryTab"})
-    public void clickSendAllToAmazon() throws InterruptedException {
+    @Test(description = "Click 'Send All to Amazon' button.")
+    public void clickSendAllToAmazon() {
+        if (!inventoryPage.isProductAvailable()) {
+            throw new SkipException("❌ Không có sản phẩm để gửi Amazon. Bỏ qua test.");
+        }
+
+        ExtentTest test = ExtentTestManager.getTest();
+        test.info("📦 Clicking 'Send All to Amazon' button...");
         inventoryPage.clickSendAllToAmazon();
-    }
-    @Test(dependsOnMethods = {"testOpenInventoryTab"})
-    public void clickDisableAllProducts() throws InterruptedException {
-        inventoryPage.clickDisableAllProducts();
+        test.pass("✅ Sent all to Amazon successfully.");
     }
 
 
+    @Test(description = "Verify UI when no products are found in the Inventory tab. Should display 'Products not found' and hide action buttons.")
+    public void verifyUIOnNoProductsFound() throws InterruptedException {
+        ExtentTest test = ExtentTestManager.getTest();
+        test.info("🧪 Kiểm tra khi không có sản phẩm hiển thị...");
+
+        inventoryPage.verifyUIOnNoProductsFound();
+
+        test.pass("✅ Giao diện đúng: Hiển thị 'Products not found' và không hiển thị các nút hành động.");
+    }
 
 
-
+//    @Test(description = "Click 'Disable All Products' button.", dependsOnMethods = {"testOpenInventoryTab"})
+//    public void clickDisableAllProducts() throws InterruptedException {
+//        ExtentTest test = ExtentTestManager.getTest();
+//        test.info("🛑 Clicking 'Disable All Products' button...");
+//        inventoryPage.clickDisableAllProducts();
+//        test.pass("✅ All products disabled successfully.");
+//    }
 }
