@@ -7,8 +7,9 @@
     <test name="Full Test">
         <classes>
             <class name="com.easytool.amazon.tests.LoginTest"/>
+            <class name="com.easytool.amazon.tests.PlanTest"/>
             <class name="com.easytool.amazon.tests.ConnectTest"/>
-            <class name="com.easytool.amazon.tests.InventoryTest"/>
+
         </classes>
     </test>
 </suite>

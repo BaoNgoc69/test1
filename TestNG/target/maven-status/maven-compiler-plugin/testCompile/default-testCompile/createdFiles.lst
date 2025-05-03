@@ -1,0 +1,6 @@
+com\easytool\amazon\tests\ConnectTest.class
+com\easytool\amazon\utils\ExtentTestManager.class
+com\easytool\amazon\tests\LoginTest.class
+com\easytool\amazon\tests\BaseTest.class
+com\easytool\amazon\tests\InventoryTest.class
+com\easytool\amazon\utils\ExtentReportExample.class

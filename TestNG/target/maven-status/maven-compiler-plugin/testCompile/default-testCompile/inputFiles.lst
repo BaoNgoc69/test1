@@ -3,5 +3,4 @@ D:\Automation\TestNG\test1\TestNG\src\test\java\com\easytool\amazon\tests\Connec
 D:\Automation\TestNG\test1\TestNG\src\test\java\com\easytool\amazon\tests\InventoryTest.java
 D:\Automation\TestNG\test1\TestNG\src\test\java\com\easytool\amazon\tests\LoginTest.java
 D:\Automation\TestNG\test1\TestNG\src\test\java\com\easytool\amazon\utils\ExtentReportExample.java
-D:\Automation\TestNG\test1\TestNG\src\test\java\com\easytool\amazon\utils\LoadCookies.java
-D:\Automation\TestNG\test1\TestNG\src\test\java\com\easytool\amazon\utils\SaveCookies.java
+D:\Automation\TestNG\test1\TestNG\src\test\java\com\easytool\amazon\utils\ExtentTestManager.java

@@ -1,0 +1,8 @@
+com\easytool\amazon\pages\InventoryPage.class
+com\easytool\amazon\pages\BasePage.class
+com\easytool\amazon\pages\LoginPage.class
+com\easytool\amazon\pages\StaleElementReferenceException.class
+com\easytool\amazon\pages\ConnectPage.class
+utils\ConfigReader.class
+com\easytool\amazon\pages\WelcomePage.class
+com\easytool\amazon\pages\BaseTestHelper.class

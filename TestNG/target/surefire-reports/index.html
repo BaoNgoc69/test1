@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 5 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Surefire_suite" class="navigator-link">
-              <span class="suite-name border-passed">Surefire suite</span>
+              <span class="suite-name border-failed">Surefire suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,7 +92,70 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">0 methods,   </span>
+                    <span class="method-stats">9 methods, 5 failed,  4 skipped,  </span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods failed suite-Surefire_suite"> (hide)</a> <!-- hide-methods failed suite-Surefire_suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods failed suite-Surefire_suite"> (show)</a> <!-- show-methods failed suite-Surefire_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Surefire_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.easytool.amazon.tests.InventoryTest" class="method navigator-link" hash-for-method="clickSendAllToAmazon">clickSendAllToAmazon</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.easytool.amazon.tests.LoginTest" class="method navigator-link" hash-for-method="testLogin">testLogin</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.easytool.amazon.tests.ConnectTest" class="method navigator-link" hash-for-method="testOpenConnectTab">testOpenConnectTab</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.easytool.amazon.tests.InventoryTest" class="method navigator-link" hash-for-method="testOpenInventoryTab">testOpenInventoryTab</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.easytool.amazon.tests.InventoryTest" class="method navigator-link" hash-for-method="verifyUIOnNoProductsFound">verifyUIOnNoProductsFound</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Surefire_suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods skipped suite-Surefire_suite"> (hide)</a> <!-- hide-methods skipped suite-Surefire_suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods skipped suite-Surefire_suite"> (show)</a> <!-- show-methods skipped suite-Surefire_suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-Surefire_suite">
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.easytool.amazon.tests.ConnectTest" class="method navigator-link" hash-for-method="testAddAndAuthorizeConnection">testAddAndAuthorizeConnection</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.easytool.amazon.tests.ConnectTest" class="method navigator-link" hash-for-method="testCheckConnection">testCheckConnection</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.easytool.amazon.tests.ConnectTest" class="method navigator-link" hash-for-method="testSaveMarketplaces">testSaveMarketplaces</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="com.easytool.amazon.tests.ConnectTest" class="method navigator-link" hash-for-method="testVerifyNoConnection">testVerifyNoConnection</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-Surefire_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -104,6 +167,164 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Surefire_suite" class="panel Surefire_suite">
+          <div class="suite-Surefire_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.easytool.amazon.tests.InventoryTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="clickSendAllToAmazon">
+                  </a> <!-- clickSendAllToAmazon -->
+                  <span class="method-name">clickSendAllToAmazon</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentTest.info(String)&quot; because &quot;test&quot; is null
+	at com.easytool.amazon.tests.InventoryTest.clickSendAllToAmazon(InventoryTest.java:39)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Click 'Send All to Amazon' button.)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testOpenInventoryTab">
+                  </a> <!-- testOpenInventoryTab -->
+                  <span class="method-name">testOpenInventoryTab</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentTest.info(String)&quot; because &quot;test&quot; is null
+	at com.easytool.amazon.tests.InventoryTest.testOpenInventoryTab(InventoryTest.java:24)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Open the Inventory tab.)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verifyUIOnNoProductsFound">
+                  </a> <!-- verifyUIOnNoProductsFound -->
+                  <span class="method-name">verifyUIOnNoProductsFound</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentTest.info(String)&quot; because &quot;test&quot; is null
+	at com.easytool.amazon.tests.InventoryTest.verifyUIOnNoProductsFound(InventoryTest.java:48)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Verify UI when no products are found in the Inventory tab. Should display 'Products not found' and hide action buttons.)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-failed -->
+          <div class="suite-Surefire_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.easytool.amazon.tests.LoginTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testLogin">
+                  </a> <!-- testLogin -->
+                  <span class="method-name">testLogin</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentTest.info(String)&quot; because &quot;test&quot; is null
+	at com.easytool.amazon.tests.LoginTest.testLogin(LoginTest.java:17)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Đăng nhập vào hệ thống)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-failed -->
+          <div class="suite-Surefire_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.easytool.amazon.tests.ConnectTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testOpenConnectTab">
+                  </a> <!-- testOpenConnectTab -->
+                  <span class="method-name">testOpenConnectTab</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;com.aventstack.extentreports.ExtentTest.info(String)&quot; because &quot;test&quot; is null
+	at com.easytool.amazon.tests.ConnectTest.testOpenConnectTab(ConnectTest.java:25)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Open the Connect tab.)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-failed -->
+          <div class="suite-Surefire_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com.easytool.amazon.tests.ConnectTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAddAndAuthorizeConnection">
+                  </a> <!-- testAddAndAuthorizeConnection -->
+                  <span class="method-name">testAddAndAuthorizeConnection</span>
+                  <div class="stack-trace">java.lang.Throwable: Method com.easytool.amazon.tests.ConnectTest.testAddAndAuthorizeConnection() on instance com.easytool.amazon.tests.ConnectTest@353d0772 depends on not successfully finished methods 
+[com.easytool.amazon.tests.ConnectTest.testCheckConnection() on instance com.easytool.amazon.tests.ConnectTest@353d0772]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 23 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Add and authorize new connection.)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCheckConnection">
+                  </a> <!-- testCheckConnection -->
+                  <span class="method-name">testCheckConnection</span>
+                  <div class="stack-trace">java.lang.Throwable: Method com.easytool.amazon.tests.ConnectTest.testCheckConnection() on instance com.easytool.amazon.tests.ConnectTest@353d0772 depends on not successfully finished methods 
+[com.easytool.amazon.tests.ConnectTest.testOpenConnectTab() on instance com.easytool.amazon.tests.ConnectTest@353d0772]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 23 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Check existing connections.)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testSaveMarketplaces">
+                  </a> <!-- testSaveMarketplaces -->
+                  <span class="method-name">testSaveMarketplaces</span>
+                  <div class="stack-trace">java.lang.Throwable: Method com.easytool.amazon.tests.ConnectTest.testSaveMarketplaces() on instance com.easytool.amazon.tests.ConnectTest@353d0772 depends on not successfully finished methods 
+[com.easytool.amazon.tests.ConnectTest.testOpenConnectTab() on instance com.easytool.amazon.tests.ConnectTest@353d0772]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 23 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Save selected marketplaces.)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testVerifyNoConnection">
+                  </a> <!-- testVerifyNoConnection -->
+                  <span class="method-name">testVerifyNoConnection</span>
+                  <div class="stack-trace">java.lang.Throwable: Method com.easytool.amazon.tests.ConnectTest.testVerifyNoConnection() on instance com.easytool.amazon.tests.ConnectTest@353d0772 depends on not successfully finished methods 
+[com.easytool.amazon.tests.ConnectTest.testOpenConnectTab() on instance com.easytool.amazon.tests.ConnectTest@353d0772]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+... Removed 23 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Verify UI when no connection exists.)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-skipped -->
         </div> <!-- panel Surefire_suite -->
         <div panel-name="test-xml-Surefire_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -115,7 +336,10 @@
 &lt;suite name=&quot;Surefire suite&quot; verbose=&quot;0&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Surefire test&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.easytool.amazon.utils.LoadCookies&quot;/&gt;
+      &lt;class name=&quot;com.easytool.amazon.tests.BaseTest&quot;/&gt;
+      &lt;class name=&quot;com.easytool.amazon.tests.ConnectTest&quot;/&gt;
+      &lt;class name=&quot;com.easytool.amazon.tests.InventoryTest&quot;/&gt;
+      &lt;class name=&quot;com.easytool.amazon.tests.LoginTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Surefire test --&gt;
 &lt;/suite&gt; &lt;!-- Surefire suite --&gt;
@@ -129,7 +353,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Surefire test (1 class)</span>
+                <span class="test-name">Surefire test (4 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -155,12 +379,48 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(0);
+data.addRows(9);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'clickSendAllToAmazon')
+data.setCell(0, 2, 'com.easytool.amazon.tests.InventoryTest')
+data.setCell(0, 3, 20295);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'verifyUIOnNoProductsFound')
+data.setCell(1, 2, 'com.easytool.amazon.tests.InventoryTest')
+data.setCell(1, 3, 4);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testOpenConnectTab')
+data.setCell(2, 2, 'com.easytool.amazon.tests.ConnectTest')
+data.setCell(2, 3, 3);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'testLogin')
+data.setCell(3, 2, 'com.easytool.amazon.tests.LoginTest')
+data.setCell(3, 3, 1);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'testSaveMarketplaces')
+data.setCell(4, 2, 'com.easytool.amazon.tests.ConnectTest')
+data.setCell(4, 3, 1);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'testOpenInventoryTab')
+data.setCell(5, 2, 'com.easytool.amazon.tests.InventoryTest')
+data.setCell(5, 3, 0);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'testCheckConnection')
+data.setCell(6, 2, 'com.easytool.amazon.tests.ConnectTest')
+data.setCell(6, 3, 0);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'testAddAndAuthorizeConnection')
+data.setCell(7, 2, 'com.easytool.amazon.tests.ConnectTest')
+data.setCell(7, 3, 0);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'testVerifyNoConnection')
+data.setCell(8, 2, 'com.easytool.amazon.tests.ConnectTest')
+data.setCell(8, 3, 0);
 window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 0 ms</span>
+              <span class="suite-total-time">Total running time: 20 seconds</span>
               <div id="times-div-Surefire_suite">
               </div> <!-- times-div-Surefire_suite -->
             </div> <!-- times-div -->
@@ -175,9 +435,36 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Surefire_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">6 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.easytool.amazon.tests.InventoryTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">teardown</span>
+                <br/>
+                <span class="ignored-method-name">setup</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.easytool.amazon.tests.LoginTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">setup</span>
+                <br/>
+                <span class="ignored-method-name">teardown</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.easytool.amazon.tests.ConnectTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">teardown</span>
+                <br/>
+                <span class="ignored-method-name">setup</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Surefire_suite" class="panel">
@@ -185,6 +472,69 @@ return data;
             <span class="header-content">Methods in chronological order</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.easytool.amazon.tests.BaseTest</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
+                <span class="method-name">setup</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-suite before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.easytool.amazon.tests.InventoryTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">initPages</span>
+                <span class="method-start">6649 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">clickSendAllToAmazon</span>
+                <span class="method-start">6685 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">verifyUIOnNoProductsFound</span>
+                <span class="method-start">26984 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.easytool.amazon.tests.LoginTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testLogin</span>
+                <span class="method-start">26995 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.easytool.amazon.tests.ConnectTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">initPages</span>
+                <span class="method-start">26997 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testOpenConnectTab</span>
+                <span class="method-start">27004 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.easytool.amazon.tests.InventoryTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testOpenInventoryTab</span>
+                <span class="method-start">27016 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.easytool.amazon.tests.BaseTest</div> <!-- chronological-class-name -->
+              <div class="configuration-suite after">
+                <span class="method-name">teardown</span>
+                <span class="method-start">27082 ms</span>
+              </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

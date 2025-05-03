@@ -1,9 +1,11 @@
 package com.easytool.amazon.pages;
 
 
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.ConfigReader;
 
 import java.time.Duration;
 
@@ -13,12 +15,17 @@ public abstract class BasePage {
     protected BaseTestHelper baseTestHelper;
 
     // Iframe dùng chung
-    protected By iframeLocator = By.xpath("//iframe[@title='[DEV] Amazon Easy Tool']");
+    protected By iframeLocator;
+
 
     public BasePage(WebDriver driver, BaseTestHelper baseTestHelper) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         this.baseTestHelper = baseTestHelper;
+
+        // Đọc title của iframe từ file cấu hình
+        String iframeTitle = ConfigReader.get("iframe.title"); // Đúng rồi nè
+        this.iframeLocator = By.xpath("//iframe[@title='" + iframeTitle + "']");
     }
 
     public boolean switchToIframe() {
@@ -37,4 +44,3 @@ public abstract class BasePage {
         driver.switchTo().defaultContent();
     }
 }
-
