@@ -14,7 +14,7 @@ public class LoginPage {
     BaseTestHelper baseTestHelper;
 
     @FindBy(id = "account_email")
-    WebElement inputEmail;  
+    WebElement inputEmail;
 
     @FindBy(xpath = "//button[@type='submit']")
     WebElement clickBtnContinue;
@@ -26,20 +26,27 @@ public class LoginPage {
     WebElement clickBtnLogin;
 
     public LoginPage(WebDriver driver, BaseTestHelper baseTestHelper) {
-
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-     this.baseTestHelper = baseTestHelper;
+        this.baseTestHelper = baseTestHelper;
         PageFactory.initElements(driver, this);
     }
 
-    public void login(String email, String password) throws InterruptedException {
-        wait.until(ExpectedConditions.visibilityOf(inputEmail)).sendKeys(email, Keys.ENTER);
-        Thread.sleep(5000);
-        wait.until(ExpectedConditions.elementToBeClickable(clickBtnContinue)).click();
-        Thread.sleep(5000);
-        wait.until(ExpectedConditions.visibilityOf(inputPassword)).sendKeys(password);
-        Thread.sleep(5000);
-        wait.until(ExpectedConditions.elementToBeClickable(clickBtnLogin)).click();
+    public void login(String email, String password) {
+        waitAndType(inputEmail, email + Keys.ENTER);
+        waitAndClick(clickBtnContinue);
+        waitAndType(inputPassword, password);
+        waitAndClick(clickBtnLogin);
+    }
+
+    // Helper: chờ phần tử hiển thị rồi nhập text
+    private void waitAndType(WebElement element, String text) {
+        wait.until(ExpectedConditions.visibilityOf(element)).clear();
+        element.sendKeys(text);
+    }
+
+    // Helper: chờ phần tử có thể click rồi click
+    private void waitAndClick(WebElement element) {
+        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
 }
